@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>NDA Service Hours Database</title>
+		<link rel="stylesheet" type="text/css" href="./css/newWindow.css">
+	</head>
+
+	<!-- ######### START BODY ######### -->
+
+	<body>
+		<div>
+			<center>
+				<div id="table">
+					<div id="subtable1">
+						<center>
+							<table>
+								<tr>
+									<td style="background-color:black; color:white;">ID</td>
+									<td style="background-color:black; color:white;">Name</td>
+									<td style="background-color:black; color:white;">Grade</td>
+									<td style="background-color:black; color:white;">Hours of Service</td>
+								</tr>
+							</table>
+						</center>
+					</div>
+					<div id="subtable2" style="overflow-y:scroll;">
+						<table id="myTable">
+						</table>
+					</div>
+				</div>
+			</center>
+		</div>
+		<div>
+			<center>
+				<table>
+					<tr>
+						<td style="background-color:transparent;">
+							<div>
+								<div>
+									<center>
+										<button id='b1' style="margin-bottom:40px" onclick="totalchange()">New Student</button>
+									</center>
+								</div>
+								<div>
+									<center>
+										<table style="width:500px;">
+											<tr>
+												<td>
+													<input disabled="disabled" style="border-collapse:collapse; border:black solid;" type="text" placeholder="Enter First Name" name="tb1" id="tb1">
+												</td>
+												<td>
+													<input disabled="disabled" style="border-collapse:collapse; border:black solid;" type="text" placeholder="Enter Last Name" name="tb4" id="tb4">
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<input disabled="disabled" style="border-collapse:collapse; border:black solid;" type="number" placeholder="Enter Grade" name="tb2"id="tb2" min="1" max="12">
+												</td>
+												<td>
+													<input disabled="disabled" style="border-collapse:collapse; border:black solid;" type="number" placeholder="Enter ID" name="tb3" id="tb3" min="1" max="12">
+												</td>
+											</tr>
+											<tr>
+												<center>
+													<td style="background-color:transparent;" colspan="2">
+														<div id="newb">
+														</div>
+													</td>
+												</center>
+											</tr>
+										</table>
+									</center>
+								</div>      
+							</div>
+						</td>
+						<td style="background-color:transparent;">
+							<div>
+								<center>
+									<button onclick="View()" id='b2'>View Student</button>
+									<button onclick="Delete()" id='b3'>Delete Student</button>
+									<button onclick="AddHours()" id='b4'>Add Hours</button>
+									<button id="b5" onclick="Edit()">Edit Student</button>
+								</center>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</center>
+		</div>
+		<center>
+			<div style="margin-top:10px; margin-bottom:40px ;height:58px; width:646px;">
+				<input disabled="disabled" style="margin:20px;" type='email' id="email" placeholder="Enter a Valid Email">
+				<button id="emailbttn" style="margin:20px;" onclick="/**/ appendcheck();">Add Email</button>
+			</div>
+			<div id="appendemail">
+			</div>
+		</center>
+
+		<!-- ######### SCRIPTS BELOW ######### -->
+		
+		<script src="js/functions.js"></script>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete Student</title>
+	<link rel="stylesheet" type="text/css" href="./css/newWindow.css">
+</head>
+<body>
+	<div>
+		<center>
+			<div id="table">
+				<div id="subtable1">
+					<center>
+						<table>
+							<tr>
+								<td style="background-color:black; color:white;">ID</td>
+								<td style="background-color:black; color:white;">Name</td>
+								<td style="background-color:black; color:white;">Grade</td>
+								<td style="background-color:black; color:white;">Hours of Service</td>
+							</tr>
+						</table>
+					</center>
+				</div>
+				<div id="subtable2" style="overflow-y:scroll;">
+					<table id="myTable">
+					</table>
+				</div>
+			</div>
+		</center>
+	</div>
+	<div style="margin-top:30px;">
+		<center>
+			<input type="Number" id="ID" placeholder="Enter Student ID">
+		</center>
+	</div>
+	<div id="temp">
+		<center>
+			<button onclick="warn()">Delete Student</button>
+		</center>
+	</div>
+	<div id="buttons">
+	</div>
+	<script src="js/delete.js"></script>
+	<script>
+		fetch('./data.json')
+		.then(response => {
+			return response.json()
+		})
+		.then(data => {
+			// Work with JSON data here
+			length = Object.keys(data).length;
+			for(let key in data){
+			    console.log(key)
+			    if (Number(key) === 0){
+			}
+			else{
+				let length = document.getElementById("myTable").rows.length
+				let row = document.getElementById("myTable").insertRow(length)
+				let cell1 = row.insertCell(0);
+				let cell2 = row.insertCell(1);
+				let cell3 = row.insertCell(2);
+				let cell4 = row.insertCell(3);
+				cell1.innerHTML = data[key][0];
+				cell2.innerHTML = `${data[key][1]} ${data[key][2]}`;
+				cell3.innerHTML = data[key][3];
+				cell4.innerHTML = data[key][4];
+				length2 = Number(key) + 1
+			}}
+		})
+		.catch(err => {
+			alert("Something went wrong, try reloading the page.")
+		})
+	</script>
+</body>
+</html>
